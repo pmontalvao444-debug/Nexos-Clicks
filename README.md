@@ -1,0 +1,1 @@
+Abra index.html ou publique a pasta no GitHub Pages.

@@ -1,0 +1,1 @@
+document.getElementById('verProdutos').onclick=()=>location.href='produtos.html';
