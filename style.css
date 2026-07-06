@@ -1,7 +1,24 @@
-/* ==========================================
-   NEXOS CLICKS V5
-   PARTE 1
-========================================== */
+/* ==========================================================
+   NEXOS CLICKS V7 ULTIMATE
+   style.css
+========================================================== */
+
+:root{
+    --bg:#050816;
+    --bg-light:#0d1430;
+
+    --primary:#2563EB;
+    --secondary:#7C3AED;
+    --accent:#06B6D4;
+
+    --white:#ffffff;
+    --text:#d6e3ff;
+
+    --glass:rgba(255,255,255,.05);
+    --border:rgba(255,255,255,.08);
+
+    --shadow:0 25px 60px rgba(0,0,0,.35);
+}
 
 *{
     margin:0;
@@ -14,174 +31,126 @@ html{
 }
 
 body{
-
     font-family:'Poppins',sans-serif;
-
-    background:#050816;
-
-    color:#fff;
-
+    background:var(--bg);
+    color:var(--white);
     overflow-x:hidden;
-
 }
 
-/* Container */
+/*=============================
+CONTAINER
+=============================*/
 
 .container{
-
-    width:90%;
-
-    max-width:1300px;
-
+    width:min(1250px,92%);
     margin:auto;
-
 }
 
-/* Fundo */
+/*=============================
+BACKGROUND
+=============================*/
 
-.bg-animation{
+.background{
 
     position:fixed;
 
-    width:100%;
-
-    height:100%;
+    inset:0;
 
     overflow:hidden;
 
-    z-index:-5;
+    z-index:-10;
+
+    background:
+    radial-gradient(circle at top left,#2563eb22,transparent 35%),
+    radial-gradient(circle at bottom right,#7c3aed22,transparent 35%),
+    linear-gradient(135deg,#050816,#081124,#0d1734);
 
 }
 
-.bg-animation span{
+/* GRID */
+
+.grid{
 
     position:absolute;
 
-    display:block;
+    inset:0;
+
+    background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+
+    background-size:60px 60px;
+
+    opacity:.35;
+
+}
+
+/* ESFERAS */
+
+.gradient-one{
+
+    position:absolute;
+
+    width:600px;
+
+    height:600px;
 
     border-radius:50%;
 
-    filter:blur(90px);
+    background:#2563EB;
 
-    animation:float 12s infinite ease-in-out;
+    filter:blur(180px);
 
-}
+    opacity:.18;
 
-.bg-animation span:nth-child(1){
+    top:-250px;
 
-    width:350px;
-
-    height:350px;
-
-    background:#2563eb55;
-
-    top:-120px;
-
-    left:-100px;
+    left:-180px;
 
 }
 
-.bg-animation span:nth-child(2){
+.gradient-two{
 
-    width:300px;
+    position:absolute;
 
-    height:300px;
+    width:700px;
 
-    background:#7c3aed40;
+    height:700px;
 
-    right:-100px;
+    border-radius:50%;
 
-    top:180px;
+    background:#7C3AED;
 
-}
+    filter:blur(200px);
 
-.bg-animation span:nth-child(3){
+    opacity:.15;
 
-    width:280px;
+    right:-250px;
 
-    height:280px;
-
-    background:#06b6d440;
-
-    bottom:-80px;
-
-    left:15%;
+    bottom:-250px;
 
 }
 
-.bg-animation span:nth-child(4){
+/* PARTÍCULAS */
 
-    width:180px;
+.particles{
 
-    height:180px;
+    position:absolute;
 
-    background:#3b82f655;
+    inset:0;
 
-    bottom:120px;
+    background-image:
+    radial-gradient(circle,#ffffff66 1px,transparent 1px);
 
-    right:12%;
+    background-size:120px 120px;
 
-}
-
-.bg-animation span:nth-child(5){
-
-    width:220px;
-
-    height:220px;
-
-    background:#22c55e30;
-
-    top:40%;
-
-    left:45%;
+    opacity:.25;
 
 }
 
-@keyframes float{
-
-    0%{
-
-        transform:translateY(0) scale(1);
-
-    }
-
-    50%{
-
-        transform:translateY(-40px) scale(1.1);
-
-    }
-
-    100%{
-
-        transform:translateY(0) scale(1);
-
-    }
-
-}
-
-/* Barra */
-
-::-webkit-scrollbar{
-
-    width:10px;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-    background:#2563eb;
-
-    border-radius:50px;
-
-}
-
-::-webkit-scrollbar-track{
-
-    background:#050816;
-
-}
-
-/* HEADER */
+/*=============================
+HEADER
+=============================*/
 
 header{
 
@@ -191,15 +160,13 @@ header{
 
     top:0;
 
-    left:0;
-
     z-index:999;
 
     backdrop-filter:blur(20px);
 
-    background:rgba(5,8,22,.72);
+    background:rgba(5,8,22,.45);
 
-    border-bottom:1px solid rgba(255,255,255,.06);
+    border-bottom:1px solid rgba(255,255,255,.05);
 
 }
 
@@ -211,13 +178,17 @@ header .container{
 
     align-items:center;
 
-    padding:24px 0;
+    padding:22px 0;
 
 }
 
-.logo h2{
+.logo{
 
-    font-size:34px;
+    text-decoration:none;
+
+    color:white;
+
+    font-size:32px;
 
     font-weight:800;
 
@@ -225,7 +196,7 @@ header .container{
 
 .logo span{
 
-    color:#3b82f6;
+    color:var(--primary);
 
 }
 
@@ -233,7 +204,7 @@ nav{
 
     display:flex;
 
-    gap:40px;
+    gap:35px;
 
 }
 
@@ -245,9 +216,15 @@ nav a{
 
     font-weight:500;
 
+    position:relative;
+
     transition:.3s;
 
-    position:relative;
+}
+
+nav a:hover{
+
+    color:#7bb2ff;
 
 }
 
@@ -257,17 +234,17 @@ nav a::after{
 
     position:absolute;
 
+    left:0;
+
+    bottom:-8px;
+
     width:0;
 
     height:2px;
 
-    background:#3b82f6;
+    background:var(--primary);
 
-    left:0;
-
-    bottom:-6px;
-
-    transition:.3s;
+    transition:.35s;
 
 }
 
@@ -277,405 +254,13 @@ nav a:hover::after{
 
 }
 
-nav a:hover{
+.btn-buy{
 
-    color:#60a5fa;
-
-}
-
-/* HERO */
-
-.hero{
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-}
-
-.hero-content{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    align-items:center;
-
-    gap:80px;
-
-    padding-top:120px;
-
-}
-
-.badge{
-
-    display:inline-block;
-
-    background:linear-gradient(90deg,#2563eb,#3b82f6);
-
-    padding:12px 22px;
-
-    border-radius:50px;
-
-    margin-bottom:25px;
-
-    font-size:15px;
-
-    box-shadow:0 0 25px rgba(37,99,235,.35);
-
-}
-
-.hero h1{
-
-    font-size:68px;
-
-    line-height:1.15;
-
-    margin-bottom:25px;
-
-    font-weight:800;
-
-}
-
-.hero h1 span{
-
-    background:linear-gradient(90deg,#60a5fa,#38bdf8);
-
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
-
-}
-
-.hero p{
-
-    color:#cbd5e1;
-
-    font-size:20px;
-
-    line-height:1.8;
-
-    margin-bottom:40px;
-
-}
-
-/* BOTÕES */
-
-.buttons{
-
-    display:flex;
-
-    gap:20px;
-
-}
-
-.btn-primary{
-
-    padding:18px 42px;
-
-    border-radius:50px;
-
-    text-decoration:none;
+    background:linear-gradient(135deg,#2563EB,#3B82F6);
 
     color:white;
 
-    background:linear-gradient(90deg,#2563eb,#3b82f6);
-
-    font-weight:700;
-
-    box-shadow:0 18px 35px rgba(37,99,235,.45);
-
-    transition:.35s;
-
-}
-
-.btn-primary:hover{
-
-    transform:translateY(-6px);
-
-    box-shadow:0 30px 55px rgba(37,99,235,.55);
-
-}
-
-.btn-secondary{
-
-    padding:18px 42px;
-
-    border-radius:50px;
-
     text-decoration:none;
-
-    color:white;
-
-    background:linear-gradient(90deg,#16a34a,#22c55e);
-
-    font-weight:700;
-
-    transition:.35s;
-
-}
-
-.btn-secondary:hover{
-
-    transform:translateY(-6px);
-
-}
-
-/* IMAGEM */
-
-.image-card{
-
-    background:rgba(255,255,255,.05);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    padding:18px;
-
-    border-radius:30px;
-
-    backdrop-filter:blur(15px);
-
-    box-shadow:0 20px 60px rgba(0,0,0,.4);
-
-}
-
-.image-card img{
-
-    width:100%;
-
-    display:block;
-
-    border-radius:20px;
-
-    transition:.5s;
-
-}
-
-.image-card img:hover{
-
-    transform:scale(1.03);
-
-}
-/* ==========================================
-   NEXOS CLICKS V5
-   PARTE 2
-========================================== */
-
-/* =========================
-   ESTATÍSTICAS
-========================= */
-
-.stats{
-
-    padding:100px 0;
-
-}
-
-.stats-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:30px;
-
-}
-
-.stat{
-
-    background:rgba(255,255,255,.05);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    backdrop-filter:blur(15px);
-
-    border-radius:25px;
-
-    padding:40px;
-
-    text-align:center;
-
-    transition:.4s;
-
-}
-
-.stat:hover{
-
-    transform:translateY(-12px);
-
-    border-color:#3b82f6;
-
-    box-shadow:0 25px 50px rgba(37,99,235,.25);
-
-}
-
-.stat h2{
-
-    font-size:52px;
-
-    color:#60A5FA;
-
-    margin-bottom:10px;
-
-}
-
-.stat p{
-
-    color:#CBD5E1;
-
-    font-size:18px;
-
-}
-
-/* =========================
-   EBOOKS
-========================= */
-
-.ebooks{
-
-    padding:120px 0;
-
-}
-
-.ebooks h2{
-
-    text-align:center;
-
-    font-size:52px;
-
-    margin-bottom:20px;
-
-}
-
-.subtitle{
-
-    text-align:center;
-
-    color:#94A3B8;
-
-    max-width:700px;
-
-    margin:0 auto 70px;
-
-    font-size:18px;
-
-}
-
-.cards{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-    gap:35px;
-
-}
-
-.card{
-
-    background:rgba(255,255,255,.05);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:25px;
-
-    padding:40px;
-
-    backdrop-filter:blur(18px);
-
-    transition:.4s;
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.card::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:180px;
-
-    height:180px;
-
-    background:#2563eb22;
-
-    border-radius:50%;
-
-    top:-60px;
-
-    right:-60px;
-
-    filter:blur(25px);
-
-}
-
-.card:hover{
-
-    transform:translateY(-15px);
-
-    border-color:#3B82F6;
-
-    box-shadow:0 25px 60px rgba(37,99,235,.25);
-
-}
-
-.icon{
-
-    width:80px;
-
-    height:80px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:34px;
-
-    border-radius:20px;
-
-    margin-bottom:25px;
-
-    background:linear-gradient(135deg,#2563eb,#60a5fa);
-
-    box-shadow:0 10px 30px rgba(37,99,235,.35);
-
-}
-
-.card h3{
-
-    font-size:28px;
-
-    margin-bottom:18px;
-
-}
-
-.card p{
-
-    color:#CBD5E1;
-
-    line-height:1.8;
-
-    margin-bottom:35px;
-
-}
-
-.btn-card{
-
-    display:inline-block;
-
-    text-decoration:none;
-
-    color:white;
-
-    background:linear-gradient(90deg,#2563EB,#60A5FA);
 
     padding:16px 30px;
 
@@ -685,497 +270,441 @@ nav a:hover{
 
     transition:.35s;
 
-}
-
-.btn-card:hover{
-
-    transform:translateY(-5px);
+    box-shadow:0 15px 40px rgba(37,99,235,.35);
 
 }
 
-/* =========================
-   SOBRE
-========================= */
+.btn-buy:hover{
 
-.about{
-
-    padding:120px 0;
-
-    background:rgba(255,255,255,.03);
+    transform:translateY(-4px);
 
 }
+/*=========================================================
+HERO
+=========================================================*/
 
-.about h2{
+.hero{
 
-    text-align:center;
+    min-height:100vh;
 
-    font-size:50px;
+    display:flex;
 
-    margin-bottom:25px;
-
-}
-
-.about p{
-
-    max-width:850px;
-
-    margin:auto;
-
-    text-align:center;
-
-    color:#CBD5E1;
-
-    line-height:2;
-
-    font-size:19px;
-
-}
-
-/* =========================
-   CTA
-========================= */
-
-.cta{
-
-    padding:120px 0;
-
-    text-align:center;
-
-}
-
-.cta h2{
-
-    font-size:58px;
-
-    margin-bottom:20px;
-
-}
-
-.cta p{
-
-    color:#CBD5E1;
-
-    font-size:20px;
-
-    margin-bottom:45px;
-
-}
-
-/* =========================
-   CONTATO
-========================= */
-
-.contact{
-
-    padding:120px 0;
-
-    text-align:center;
-
-    background:rgba(255,255,255,.03);
-
-}
-
-.contact h2{
-
-    font-size:48px;
-
-    margin-bottom:20px;
-
-}
-
-.contact p{
-
-    color:#CBD5E1;
-
-    margin-bottom:40px;
-
-    font-size:18px;
-
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-
-    padding:70px 0;
-
-    text-align:center;
-
-    border-top:1px solid rgba(255,255,255,.08);
-
-}
-
-footer h2{
-
-    font-size:34px;
-
-    margin-bottom:15px;
-
-}
-
-footer p{
-
-    color:#94A3B8;
-
-    margin-bottom:20px;
-
-}
-
-footer small{
-
-    color:#64748B;
-
-}
-/* ==========================================
-   NEXOS CLICKS V5
-   PARTE 3
-========================================== */
-
-/* ==========================
-   GRADE TECNOLÓGICA
-========================== */
-
-body::before{
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    background-image:
-
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-
-    background-size:45px 45px;
-
-    pointer-events:none;
-
-    z-index:-3;
-
-}
-
-/* ==========================
-   GLOW NO FUNDO
-========================== */
-
-body::after{
-
-    content:"";
-
-    position:fixed;
-
-    width:800px;
-
-    height:800px;
-
-    background:radial-gradient(circle,#2563eb18,transparent 70%);
-
-    top:-300px;
-
-    right:-250px;
-
-    filter:blur(60px);
-
-    z-index:-4;
-
-}
-
-/* ==========================
-   BRILHO DOS BOTÕES
-========================== */
-
-.btn-primary,
-.btn-secondary,
-.btn-card{
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.btn-primary::before,
-.btn-secondary::before,
-.btn-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:-120%;
-
-    width:60%;
-
-    height:100%;
-
-    transform:skewX(-25deg);
-
-    background:rgba(255,255,255,.25);
-
-    transition:.7s;
-
-}
-
-.btn-primary:hover::before,
-.btn-secondary:hover::before,
-.btn-card:hover::before{
-
-    left:140%;
-
-}
-
-/* ==========================
-   ANIMAÇÃO DOS CARDS
-========================== */
-
-.card,
-.stat{
-
-    animation:fadeUp .9s ease both;
-
-}
-
-.card:nth-child(2){
-
-    animation-delay:.2s;
-
-}
-
-.card:nth-child(3){
-
-    animation-delay:.4s;
-
-}
-
-@keyframes fadeUp{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(60px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
-/* ==========================
-   TÍTULOS
-========================== */
-
-.hero h1{
-
-    text-shadow:
-
-    0 0 20px rgba(59,130,246,.15),
-
-    0 0 40px rgba(59,130,246,.10);
-
-}
-
-/* ==========================
-   IMAGEM
-========================== */
-
-.image-card{
+    align-items:center;
 
     position:relative;
 
 }
-
-.image-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:-2px;
-
-    border-radius:32px;
-
-    background:linear-gradient(135deg,#2563eb,#7c3aed,#06b6d4);
-
-    z-index:-1;
-
-    filter:blur(18px);
-
-    opacity:.6;
-
-}
-
-/* ==========================
-   HOVER NO MENU
-========================== */
-
-nav a{
-
-    padding:6px 0;
-
-}
-
-nav a:hover{
-
-    transform:translateY(-2px);
-
-}
-
-/* ==========================
-   SEÇÕES
-========================== */
-
-section{
-
-    position:relative;
-
-}
-
-section::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-
-    bottom:0;
-
-    width:120px;
-
-    height:2px;
-
-    transform:translateX(-50%);
-
-    background:linear-gradient(to right,transparent,#2563eb,transparent);
-
-    opacity:.35;
-
-}
-
-/* ==========================
-   RESPONSIVO
-========================== */
-
-@media(max-width:1100px){
 
 .hero-content{
 
-grid-template-columns:1fr;
+    display:grid;
 
-text-align:center;
+    grid-template-columns:1.1fr .9fr;
 
-gap:60px;
+    gap:80px;
 
-}
-
-.buttons{
-
-justify-content:center;
-
-flex-wrap:wrap;
+    align-items:center;
 
 }
 
-.stats-grid{
+/*=============================
+TAG
+=============================*/
 
-grid-template-columns:repeat(2,1fr);
+.tag{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 24px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(37,99,235,.25);
+
+    background:rgba(37,99,235,.08);
+
+    backdrop-filter:blur(20px);
+
+    color:#7BB2FF;
+
+    margin-bottom:35px;
 
 }
 
-header .container{
-
-flex-direction:column;
-
-gap:20px;
-
-}
-
-nav{
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-}
-
-}
-
-@media(max-width:700px){
+/*=============================
+TEXTOS
+=============================*/
 
 .hero h1{
 
-font-size:42px;
+    font-size:82px;
+
+    line-height:1;
+
+    font-weight:800;
+
+}
+
+.hero h1 span{
+
+    background:
+
+    linear-gradient(90deg,#FFFFFF,#7BB2FF,#7C3AED);
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+.hero h2{
+
+    margin-top:25px;
+
+    font-size:54px;
+
+    line-height:1.1;
+
+    color:#D6E3FF;
 
 }
 
 .hero p{
 
-font-size:17px;
+    margin-top:30px;
+
+    color:#AFC2E7;
+
+    max-width:620px;
+
+    font-size:19px;
+
+    line-height:1.8;
 
 }
 
-.stats-grid{
+/*=============================
+BOTÕES
+=============================*/
 
-grid-template-columns:1fr;
+.hero-buttons{
 
-}
+    display:flex;
 
-.cards{
+    gap:20px;
 
-grid-template-columns:1fr;
-
-}
-
-.ebooks h2,
-.about h2,
-.contact h2,
-.cta h2{
-
-font-size:34px;
+    margin-top:45px;
 
 }
 
-.btn-primary,
+.btn-primary{
+
+    padding:18px 34px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    background:
+
+    linear-gradient(135deg,#2563EB,#3B82F6);
+
+    color:white;
+
+    font-weight:700;
+
+    transition:.35s;
+
+    box-shadow:
+
+    0 15px 40px rgba(37,99,235,.35);
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-5px);
+
+}
+
 .btn-secondary{
 
-width:100%;
+    padding:18px 34px;
 
-text-align:center;
+    border-radius:50px;
+
+    text-decoration:none;
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(20px);
+
+    transition:.35s;
 
 }
 
+.btn-secondary:hover{
+
+    transform:translateY(-5px);
+
 }
 
-/* ==========================
-   TRANSIÇÕES
-========================== */
+/*=============================
+AVALIAÇÃO
+=============================*/
 
-*{
+.hero-rating{
 
-transition:
+    margin-top:45px;
 
-background .3s,
+    display:flex;
 
-color .3s,
+    align-items:center;
 
-border .3s,
+    gap:18px;
 
-box-shadow .3s,
+    color:#FFD54A;
 
-transform .3s;
+    font-size:24px;
+
+}
+
+.hero-rating span{
+
+    color:#D6E3FF;
+
+    font-size:16px;
+
+}
+
+/*=============================
+LADO DIREITO
+=============================*/
+
+.hero-right{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.hero-graphic{
+
+    position:relative;
+
+    width:600px;
+
+    height:600px;
+
+}
+/*=========================================================
+HERO ART
+=========================================================*/
+
+.orb{
+
+position:absolute;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:220px;
+
+height:220px;
+
+border-radius:50%;
+
+background:
+linear-gradient(135deg,#2563EB,#7C3AED);
+
+box-shadow:
+
+0 0 80px rgba(37,99,235,.65),
+
+0 0 160px rgba(124,58,237,.45),
+
+0 0 260px rgba(37,99,235,.25);
+
+}
+
+/*=============================
+ANEL 1
+=============================*/
+
+.ring{
+
+position:absolute;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:340px;
+
+height:340px;
+
+border-radius:50%;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+/*=============================
+ANEL 2
+=============================*/
+
+.ring.two{
+
+width:470px;
+
+height:470px;
+
+border-color:rgba(37,99,235,.18);
+
+}
+
+/*=============================
+ANEL 3
+=============================*/
+
+.ring.three{
+
+width:610px;
+
+height:610px;
+
+border-color:rgba(124,58,237,.15);
+
+}
+
+/*=============================
+LINHAS
+=============================*/
+
+.wave-lines{
+
+position:absolute;
+
+inset:0;
+
+}
+
+.wave-lines::before{
+
+content:"";
+
+position:absolute;
+
+width:520px;
+
+height:220px;
+
+border:2px solid rgba(37,99,235,.20);
+
+border-radius:50%;
+
+top:170px;
+
+left:35px;
+
+transform:rotate(-18deg);
+
+}
+
+.wave-lines::after{
+
+content:"";
+
+position:absolute;
+
+width:580px;
+
+height:260px;
+
+border:2px solid rgba(124,58,237,.18);
+
+border-radius:50%;
+
+top:120px;
+
+left:0;
+
+transform:rotate(18deg);
+
+}
+
+/*=============================
+LUZES
+=============================*/
+
+.hero-graphic::before{
+
+content:"";
+
+position:absolute;
+
+width:14px;
+
+height:14px;
+
+background:#60A5FA;
+
+border-radius:50%;
+
+top:110px;
+
+left:90px;
+
+box-shadow:
+
+0 0 20px #60A5FA,
+
+0 0 50px #60A5FA,
+
+0 0 100px #60A5FA;
+
+}
+
+.hero-graphic::after{
+
+content:"";
+
+position:absolute;
+
+width:10px;
+
+height:10px;
+
+background:#A855F7;
+
+border-radius:50%;
+
+right:90px;
+
+bottom:100px;
+
+box-shadow:
+
+0 0 20px #A855F7,
+
+0 0 60px #A855F7,
+
+0 0 120px #A855F7;
 
 }
